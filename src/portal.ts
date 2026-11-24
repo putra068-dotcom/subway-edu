@@ -152,7 +152,7 @@ export function openStudentForm(
     }
 
     closePortal();
-    onStart(name);
+    onStart(profile);
   });
 }
 
