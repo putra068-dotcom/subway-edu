@@ -102,7 +102,9 @@ function buttonStyle(color = '#1769e0'): string {
 }
 
 // FORM IDENTITAS SISWA
-export function openStudentForm(onStart: (name: string) => void): void {
+export function openStudentForm(
+  onStart: (profile: StudentProfile) => void
+): void {
   const overlay = showPortal('🎓 Identitas Pemain', `
     <form id="student-form" class="portal-form">
       <label>Nama lengkap siswa</label>
