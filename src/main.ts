@@ -12,7 +12,10 @@ import { load, save } from './storage';
 import { OB, trainLength, speedAt, SPEED, laneX, MOVER } from './config';
 import type { ObKind, PowerKind, SimEvent } from './sim/types';
 import { pickQuestion, type EduQuestion } from './edu';
-
+import {
+  openAdminPanel,
+  openCharacterPicker
+} from './portal';
 interface Boot {
   set(p: number, label?: string): void;
   core: Promise<ArrayBuffer>;
