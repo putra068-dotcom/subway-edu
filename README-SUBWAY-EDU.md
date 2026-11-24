@@ -1,50 +1,47 @@
-# Subway Edu — Web Android Starter
+# SUBWAY EDU — versi 0.2.0
 
-Subway Edu adalah prototipe game endless runner 3D berbasis Three.js yang diadaptasi pada tingkat konsep dan struktur teknis dari proyek referensi yang diberikan. Fokus tahap awal: kontrol tiga jalur, lari otomatis, lompat, merunduk, rintangan, koin, HUD, dan kuis pembelajaran.
+Game 3D endless runner edukatif berbasis Three.js + TypeScript + Vite. Target utama: browser Android portrait, serta desktop.
 
-## Teknologi
-- Three.js + TypeScript + Vite
-- WebGL untuk grafis 3D
-- Pointer Events untuk swipe pada layar sentuh
-- LocalStorage untuk rekor, koin, dan jumlah jawaban benar
-- PWA manifest + service worker sebagai fondasi instalasi Android
+## Fitur versi 0.2.0
+- Home screen baru dengan tiga aksi: Panel Admin, Main, Pilih Karakter.
+- Form identitas siswa: nama, kelas I–VI, dan mata pelajaran sebelum permainan dimulai.
+- Panel Admin ber-PIN (PIN awal `1234`; ubah kode sumber sebelum dipakai di lingkungan publik).
+- Bank soal tambah/hapus, impor CSV, dan unduh template CSV.
+- Soal terisolasi berdasarkan kombinasi kelas dan mata pelajaran.
+- Kotak pertanyaan ditampilkan sebagai popup bergambar peti/box pada checkpoint jarak; jarak dapat diatur admin 120–600 meter (default 220 meter).
+- Popup menghentikan permainan sampai siswa menjawab, lalu permainan dilanjutkan.
+- Pemilihan karakter awal (pilihan tampilan/profil; integrasi model 3D karakter khusus adalah tahap aset berikutnya).
 
-## Menjalankan di komputer
-1. Pasang Node.js 22.
-2. Buka folder proyek ini di VS Code.
-3. Jalankan `npm install`.
-4. Jalankan `npm run dev -- --host 0.0.0.0`.
-5. Buka alamat lokal yang ditampilkan Vite.
+## Menjalankan lokal
+Gunakan Node.js 22:
 
-## Build produksi
+```bash
+npm ci
+npm run dev -- --host 0.0.0.0
+```
+
+Build produksi:
+
 ```bash
 npm run build
-npm run preview -- --host 0.0.0.0
+npm run preview
 ```
-Folder hasil produksi: `dist/`.
 
-## Uji di Android
-- Komputer dan HP harus berada pada jaringan Wi-Fi yang sama.
-- Jalankan dev server dengan `npm run dev -- --host 0.0.0.0`.
-- Buka alamat IP komputer dan port Vite dari Chrome Android.
-- Untuk pemasangan PWA dan service worker pada produksi, hosting harus menggunakan HTTPS.
+## Format CSV bank soal
+Header wajib:
 
-## Kontrol
-- Geser kiri/kanan: pindah jalur.
-- Geser ke atas: lompat.
-- Geser ke bawah: merunduk/berguling.
-- Tombol jeda di layar: pause.
-- Keyboard PC: panah atau WASD, Spasi untuk lompat, Esc untuk jeda.
+```csv
+kelas,mapel,pertanyaan,opsiA,opsiB,opsiC,opsiD,kunci,pembahasan
+```
 
-## Fitur edukasi prototipe
-Setelah pemain mengumpulkan 5 koin, permainan berhenti sementara dan menampilkan satu soal pilihan ganda. Bank soal awal ada di `src/edu.ts`. Soal mencakup Matematika, Bahasa Indonesia, dan Pendidikan Pancasila. Jawaban benar menambah penghitung jawaban benar yang disimpan pada LocalStorage.
+- `kelas`: I, II, III, IV, V, atau VI.
+- `mapel`: nama mata pelajaran yang akan dipilih siswa.
+- `kunci`: A, B, C, atau D.
+- Setiap baris merupakan satu soal. Soal hanya masuk ke pasangan kelas dan mapel yang tertulis pada baris tersebut.
+- Teks yang mengandung koma harus dibungkus tanda kutip ganda.
 
-## Tahap pengembangan berikutnya
-1. Menu awal khusus Subway Edu (Main, Panel Guru, Pengaturan Karakter).
-2. Panel Guru: kelas, mapel, kategori, tingkat kesulitan, jumlah soal, dan bank soal.
-3. Profil siswa: nama dan kelas.
-4. Rekap nilai per siswa dan ekspor CSV.
-5. Sistem akun/backend bila dibutuhkan untuk sinkronisasi lintas perangkat.
-6. Optimasi model, animasi, efek suara, dan pengujian pada beberapa ukuran Android.
+## Catatan penyimpanan dan keamanan
+Data bank soal, pengaturan, dan rekor saat ini tersimpan di LocalStorage browser. Data belum tersinkron antarperangkat. PIN admin pada versi ini adalah pengunci antarmuka sisi-klien, bukan autentikasi aman; untuk penggunaan sekolah lintas perangkat, tahap berikutnya perlu backend/database dan autentikasi admin di server.
 
-Catatan: ZIP referensi tidak menyertakan file lisensi di root. Sebelum distribusi publik/komersial, pastikan hak penggunaan source code dan aset model 3D telah diperoleh. Proyek ini belum boleh dianggap sebagai produk final atau salinan resmi Subway Surfers.
+## Kotak pertanyaan
+Pada versi ini checkpoint kotak pertanyaan ditampilkan sebagai popup edukasi saat pemain mencapai jarak tertentu. Model peti 3D yang benar-benar muncul sebagai objek di rel dapat ditambahkan pada iterasi aset/level berikutnya.
