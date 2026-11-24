@@ -99,13 +99,9 @@ async function main() {
     play();
   },
 
-  admin: () => {
-    openAdminPanel();
-  },
+  admin: () => {},
 
-  character: () => {
-    openCharacterPicker();
-  },
+  character: () => {},
 
   resume: () => resume(),
 
