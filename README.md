@@ -66,4 +66,6 @@ src/view/     three.js: world.ts (scene, camera), player.ts, pools.ts (instancin
 src/          main.ts (states, loop, test hook), ui.ts, input.ts, audio.ts, i18n.ts, storage.ts
 tools/        build_assets.py (Blender), slim_glb.mjs
 tests/        browser tests
+
+## Game ini dibuat untuk kepentingan pembelajaran
 ```
