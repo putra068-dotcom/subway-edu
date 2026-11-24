@@ -51,18 +51,47 @@ export class UI {
       </div>
       <div class="flash" id="flash"></div>
       <section class="screen start" id="s-start">
-        <div class="panel">
-          <h1 data-k="title"></h1>
-          <p class="tag" data-k="tagline"></p>
-          <div class="stats"><div><small data-k="best"></small><b id="best">0</b></div><div><small data-k="coinsTotal"></small><b id="bank">0</b></div></div>
-          <button class="big" id="btn-play" data-k="play"></button>
-          <p class="ctrl" id="ctrl"></p>
-          <div class="row">
-            <button class="chip" id="btn-lang"></button>
-            <button class="chip" id="btn-mute2"></button>
-          </div>
-        </div>
-      </section>
+  <div class="panel">
+
+    <h1 data-k="title"></h1>
+    <p class="tag" data-k="tagline"></p>
+
+    <div class="stats">
+      <div>
+        <small data-k="best"></small>
+        <b id="best">0</b>
+      </div>
+      <div>
+        <small data-k="coinsTotal"></small>
+        <b id="bank">0</b>
+      </div>
+    </div>
+
+    <div class="home-action">
+
+      <button class="big" id="btn-play">
+        🏃 MAIN
+      </button>
+
+      <button class="ghost" id="btn-admin">
+        🛡️ PANEL ADMIN
+      </button>
+
+      <button class="ghost" id="btn-character">
+        👤 PILIH KARAKTER
+      </button>
+
+    </div>
+
+    <p class="ctrl" id="ctrl"></p>
+
+    <div class="row">
+      <button class="chip" id="btn-lang"></button>
+      <button class="chip" id="btn-mute2"></button>
+    </div>
+
+  </div>
+</section>
       <section class="screen pause" id="s-pause">
         <div class="panel">
           <h2 data-k="paused"></h2>
