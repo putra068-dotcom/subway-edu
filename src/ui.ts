@@ -116,7 +116,19 @@ export class UI {
       </section>`;
     root.querySelectorAll<HTMLElement>('[id]').forEach((e) => (this.el[e.id] = e));
     const tap = (id: string, fn: () => void) => this.el[id].addEventListener('click', (e) => { e.stopPropagation(); fn(); });
-    tap('btn-play', () => h.play());
+    tap('btn-play', () => {
+  const name = window.prompt('Masukkan nama pemain:');
+
+  if (!name || !name.trim()) {
+    return;
+  }
+
+  h.play(name.trim());
+});
+
+tap('btn-admin', () => h.admin());
+
+tap('btn-character', () => h.character());
     tap('btn-pause', () => h.pause());
     tap('btn-resume', () => h.resume());
     tap('btn-restart', () => h.restart());
