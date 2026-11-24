@@ -1,0 +1,12 @@
+{
+  "name": "Subway Edu",
+  "short_name": "Subway Edu",
+  "description": "Game endless runner sambil belajar untuk siswa sekolah dasar",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#102b52",
+  "theme_color": "#102b52",
+  "icons": []
+}
