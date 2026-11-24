@@ -95,14 +95,35 @@ async function main() {
     ui.setMuted(audio.muted);
   };
   const ui = new UI(document.getElementById('ui')!, {
-    play: () => play(),
-    resume: () => resume(),
-    pause: () => pause(),
-    restart: () => { toTitle(false); play(); },
-    home: () => toTitle(true),
-    toggleMute,
-    langChanged: () => {},
-  }, audio.muted);
+  play: (name: string) => {
+    play();
+  },
+
+  admin: () => {
+    openAdminPanel();
+  },
+
+  character: () => {
+    openCharacterPicker();
+  },
+
+  resume: () => resume(),
+
+  pause: () => pause(),
+
+  restart: () => {
+    toTitle(false);
+    play();
+  },
+
+  home: () => {
+    toTitle(true);
+  },
+
+  toggleMute,
+
+  langChanged: () => {},
+}, audio.muted);
 
   let seed = (Date.now() % 100000) + 1;
   function toTitle(show: boolean) {
