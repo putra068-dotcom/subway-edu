@@ -372,9 +372,14 @@ export function openAdminPanel(): void {
         bank.push(createQuestion(data));
       }
 
-      closePortal();
-      openAdminPanel();
-      alert('Soal berhasil disimpan.');
+      if (!saveQuestionBank(bank)) {
+  alert('Gagal menyimpan soal. Periksa penyimpanan browser.');
+  return;
+}
+
+closePortal();
+openAdminPanel();
+alert('Soal berhasil disimpan.');
     });
   }
 
