@@ -5,7 +5,9 @@ import { POWER_TIME } from './config';
 
 export type Screen = 'start' | 'play' | 'pause' | 'over';
 export interface UIHandlers {
-  play(): void;
+  play(name: string): void;
+  admin(): void;
+  character(): void;
   resume(): void;
   pause(): void;
   restart(): void;
