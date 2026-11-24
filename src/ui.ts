@@ -1,3 +1,8 @@
+import {
+  openStudentForm,
+  openAdminPanel,
+  openCharacterPicker
+} from './portal';
 // The DOM layer: title screen, HUD, pause and result screens. Plain elements, no framework.
 import { t, getLang, setLang, LANGS, LANG_LABEL, type Key } from './i18n';
 import type { PowerKind } from './sim/types';
